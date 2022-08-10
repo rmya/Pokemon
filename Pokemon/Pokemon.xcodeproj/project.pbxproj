@@ -19,6 +19,7 @@
 		3D12F15128A31461002795AE /* PokemonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12F15028A31461002795AE /* PokemonUITestsLaunchTests.swift */; };
 		3D12F16328A315FF002795AE /* PokemonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12F16228A315FF002795AE /* PokemonModels.swift */; };
 		3D12F16628A319B1002795AE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D12F16528A319B1002795AE /* NetworkManager.swift */; };
+		3DB5A69628A414A700A3EBA8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB5A69528A414A700A3EBA8 /* UIExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		3D12F15028A31461002795AE /* PokemonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3D12F16228A315FF002795AE /* PokemonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModels.swift; sourceTree = "<group>"; };
 		3D12F16528A319B1002795AE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3DB5A69528A414A700A3EBA8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		3D12F12928A31460002795AE /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				3DB5A69428A4148A00A3EBA8 /* Extensions */,
 				3D12F16428A31995002795AE /* Services */,
 				3D12F15F28A3155C002795AE /* Model */,
 				3D12F16128A3156C002795AE /* Controller */,
@@ -174,6 +177,14 @@
 				3D12F16528A319B1002795AE /* NetworkManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3DB5A69428A4148A00A3EBA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DB5A69528A414A700A3EBA8 /* UIExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D12F16628A319B1002795AE /* NetworkManager.swift in Sources */,
+				3DB5A69628A414A700A3EBA8 /* UIExtensions.swift in Sources */,
 				3D12F16328A315FF002795AE /* PokemonModels.swift in Sources */,
 				3D12F12F28A31460002795AE /* PokemonCardViewController.swift in Sources */,
 				3D12F13528A31460002795AE /* Pokemon.xcdatamodeld in Sources */,
