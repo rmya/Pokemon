@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +26,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20964943210933309" green="0.23862286677557387" blue="0.76859849691390991" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.20784313725490194" green="0.23921568627450979" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="B2C-34-ZGl" firstAttribute="centerX" secondItem="3pZ-n9-xzi" secondAttribute="centerX" id="JYD-9I-1ph"/>
                                     <constraint firstItem="B2C-34-ZGl" firstAttribute="centerY" secondItem="3pZ-n9-xzi" secondAttribute="centerY" id="Ypv-CT-0MF"/>
@@ -35,7 +34,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.20784312490000001" green="0.23921570180000001" blue="0.76862752440000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="3pZ-n9-xzi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="1ZS-GO-kEQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3pZ-n9-xzi" secondAttribute="bottom" id="Fll-iD-Zmn"/>
@@ -51,8 +50,5 @@
     </scenes>
     <resources>
         <image name="pokemon_with_ball" width="256" height="256"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

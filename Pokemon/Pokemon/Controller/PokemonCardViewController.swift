@@ -22,47 +22,62 @@ class PokemonCardViewController: UIViewController {
     
     var isFlipped = false
     
+    private var pokemonURLs = [String]()
+    private var pokemonIndex = 0
+    
+    private var pokemon : Pokemon? {
+        didSet{
+            guard let pokemon = pokemon else {
+                return
+            }
+            pokemonName.text = pokemon.name.capitalized
+            pokemonImage.setURLImage(pokemon.sprites.front_default)
+            hpPoint.text = String(pokemon.stats[0].base_stat)
+            attackPoint.text = String(pokemon.stats[1].base_stat)
+            defensePoint.text = String(pokemon.stats[2].base_stat)
+
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         cardView.roundCorner()
-        self.flipCard()
-    }
-
-    func flipCard(){
+        self.showNextPokemon()
         
-        if isFlipped {
-            UIView.transition(with: cardView, duration: 0.5, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: nil, completion: nil)
-            self.isFlipped = false
-        }else {
-            UIView.transition(with: cardView, duration: 0.5, options: .transitionFlipFromTop) {
-                UIView.animate(withDuration: 0.5, delay: 0.5,
-                                      usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0, options: [], animations: {
-                   
-                    let groupAnimation = CAAnimationGroup()
-                    groupAnimation.beginTime = CACurrentMediaTime()
-                    groupAnimation.duration = 0.5
-                    groupAnimation.fillMode = .backwards
-                    
-                    let scaleDown = CABasicAnimation(keyPath: "transform.scale")
-                    scaleDown.fromValue = 1.0
-                    scaleDown.toValue = 1.0
-                    
-                    let rotate = CABasicAnimation(keyPath: "transform.rotation")
-                    rotate.fromValue = .pi / 3.0
-                    rotate.toValue = 0.0
-                    
-                    groupAnimation.animations = [scaleDown, rotate]
-                    self.cardView.layer.add(groupAnimation, forKey: nil)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showNextPokemon))
+        cardView.addGestureRecognizer(tap)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.getAllPokemonFromURLs()
+    }
+    
+    func getAllPokemonFromURLs(){
+        NetworkManager.networkManager.getAllPokemons { pokemonEntries in
+            for entry in pokemonEntries {
+                self.pokemonURLs.append(entry.url)
+                }
+            }
+       
+        }
+    
+    @objc func showNextPokemon(){
+        pokemonIndex += 1
+        NetworkManager.networkManager.getPokemon(withUrl: String(self.pokemonIndex)) { pokemon in
+            DispatchQueue.main.async {
+                self.pokemon = pokemon
 
-                }, completion: nil)
-                
-            } completion: { Bool in
-                self.isFlipped = true
             }
         }
+        self.flipCard()
+    }
+    
+    func flipCard(){
         
+        UIView.transition(with: cardView, duration: 0.5, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: nil, completion: nil)
     }
 
 }
